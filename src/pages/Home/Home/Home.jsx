@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 
 const Home = () => {
   return (
-    <div fluid
+    <div fluid='true'
        style={{
         backgroundImage: `url('https://i.pinimg.com/564x/a7/6b/c8/a76bc81a4de744ab0fbc73e980547131.jpg')`,
         backgroundSize: 'cover',
