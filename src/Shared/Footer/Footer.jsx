@@ -25,7 +25,8 @@ const Footer = () => {
               <Button variant="primary" type="submit">Subscribe</Button>
             </Form>
           </Col>
-          <Col md={4}>
+          <Col md={4} className='ml-2'>
+            <div>
             <h4>Contact Us</h4>
             <ul className="list-unstyled">
               <li>1234 Main Street</li>
@@ -34,6 +35,7 @@ const Footer = () => {
               <li>(123) 456-7890</li>
               <li>info@savor.com</li>
             </ul>
+            </div>
           </Col>
         </Row>
         <hr />

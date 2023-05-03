@@ -3,6 +3,7 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import Main from '../Layouts/Main';
 import Chefs from '../pages/Home/Chefs/Chefs';
+import FoodItems from '../pages/Home/FoodItems/FoodItems';
 import Home from '../pages/Home/Home/Home';
 import Recipes from '../pages/Home/Recipes/Recipes';
 
@@ -16,7 +17,9 @@ const router = createBrowserRouter([
       element:<Home></Home>
     },
     {
-      path:'/re'
+      path:'/items',
+      element:<FoodItems></FoodItems>,
+     
     },
     {
       path:'/chefs',
