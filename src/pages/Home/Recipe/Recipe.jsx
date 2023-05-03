@@ -14,7 +14,18 @@ const Recipe = ({ recipe }) => {
   
   const handleToast = (event) =>{
     event.currentTarget.disabled = true;
-    toast('This is my favorite recipe.');
+    toast.success('My favorite recipe.', {
+      style: {
+        border: '1px solid #713200',
+        padding: '16px',
+        color: '#ffffff',
+        backgroundColor:'blue'
+      },
+      iconTheme: {
+        primary: '#713200',
+        secondary: '#FFFAEE',
+      },
+    });
     
   }
 
