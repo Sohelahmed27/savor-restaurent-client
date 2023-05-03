@@ -4,12 +4,20 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
-import { FaStar } from 'react-icons/fa';
+import { FaBookmark, FaStar } from 'react-icons/fa';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { toast, Toaster } from "react-hot-toast";
 
 const Recipe = ({ recipe }) => {
+  
+  const handleToast = (event) =>{
+    event.currentTarget.disabled = true;
+    toast('This is my favorite recipe.');
+    
+  }
+
   console.log(recipe);
   return (
     <Container>
@@ -30,7 +38,7 @@ const Recipe = ({ recipe }) => {
             <Card.Text>{recipe.cooking_method}</Card.Text>
              
             </Card.Body>
-            <Card.Footer>
+            <Card.Footer className="d-flex justify-content-between">
           <small className="text-muted">
           <Rating
       style={{ maxWidth: 180 }}
@@ -38,6 +46,10 @@ const Recipe = ({ recipe }) => {
       readOnly
     />
           </small>
+          <div>
+          <button onClick={handleToast}><small><FaBookmark></FaBookmark></small></button>
+          <Toaster />
+          </div>
         </Card.Footer>
           </Card>
         </Col>     
