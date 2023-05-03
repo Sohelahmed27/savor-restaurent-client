@@ -4,6 +4,11 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
+import { FaStar } from 'react-icons/fa';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
+
 const Recipe = ({ recipe }) => {
   console.log(recipe);
   return (
@@ -11,10 +16,10 @@ const Recipe = ({ recipe }) => {
     
       <Row >
         <Col className="g-4">
-          <Card>
+          <Card style={{height:"1000px"}}>
             <Card.Img style={{height: '300px'}} variant="top" src={recipe.image} />
             <Card.Body>
-              <Card.Title>{recipe.recipe_name}</Card.Title>
+              <Card.Title className='text-center text-primary mb-3'>{recipe.recipe_name}</Card.Title>
               <Card.Text>
                   <h6 className="text-primary">Ingredients</h6>
               {recipe.ingredients.map((r) => (
@@ -25,6 +30,15 @@ const Recipe = ({ recipe }) => {
             <Card.Text>{recipe.cooking_method}</Card.Text>
              
             </Card.Body>
+            <Card.Footer>
+          <small className="text-muted">
+          <Rating
+      style={{ maxWidth: 180 }}
+      value={recipe.cooking_method.rating}
+      readOnly
+    />
+          </small>
+        </Card.Footer>
           </Card>
         </Col>     
     </Row>   

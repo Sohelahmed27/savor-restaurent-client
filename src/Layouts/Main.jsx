@@ -9,8 +9,7 @@ const Main = () => {
   return (
     <div>
       <Header></Header>
-      <Home></Home>
-      <Outlet></Outlet>
+      <Outlet></Outlet>  
       <Footer></Footer>
     </div>
   );
