@@ -19,9 +19,15 @@ const Recipes = () => {
       <Card className='mx-auto mt-5'>
         <Card.Img className='mx-auto' style={{height:'400px', width:'400px'}} variant="top" src={image} />
         <Card.Body className='text-center'>
-        <h3 className='text-primary'>{name}</h3>
+        <h3 className='text-primary text-center'>{name}</h3>
+        <Card.Text className='text-left'>
+                <p>Experience:{years_of_experience}</p>
+                <p>Number of recipes:{num_recipes}</p>
+                <p>Likes:{likes}</p>
+                <p>Bio-data:{bio}</p>
+              </Card.Text>
           <Card.Text>
-            {bio}
+            
           </Card.Text>
         </Card.Body>
       </Card>
