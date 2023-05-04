@@ -7,7 +7,7 @@ import FoodItem from '../FoodItem/FoodItem';
 const FoodItems = () => {
   const [foods, setFoods] =useState([]);
   useEffect(() => {
-    fetch('http://localhost:3000/items')
+    fetch('https://y-sohelahmed27.vercel.app/items')
     .then (res => res.json())
     .then(data => setFoods(data.foods))
   },[])

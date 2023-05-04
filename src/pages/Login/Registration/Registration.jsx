@@ -10,9 +10,7 @@ const Registration = () => {
   const {createUser} = useContext(AuthContext);
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
-  const [photo, setPhoto] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  
 
 
   const handleSubmit = (e) => {
@@ -34,6 +32,9 @@ const Registration = () => {
     .catch(err => {
       setError(err)
     })
+    if(password.length<6){
+      return alert("Please enter atleast 6 characters");
+    }
   };
   return (
     <div className="w-25 mx-auto border p-3 mt-4 rounded lh-lg">
@@ -89,7 +90,9 @@ const Registration = () => {
       </Form.Group>
 
       <Form.Group className="my-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" name="accept" label="Accept terms and conditions" required/>
+      <Form.Check 
+        type="checkbox" required/>
+      <Link to='/terms'>Terms and conditions</Link>
       </Form.Group>
 
       <Button className="mt-4" variant="primary" type="submit">
@@ -99,7 +102,7 @@ const Registration = () => {
     <p><small>Already have an account? Please login <Link to="/login">Login</Link>.</small></p>
 
     <Form.Text className="text-success">
-        {user?'Account successfully created' :'Provide right email and password' }
+        {user?'Account successfully created' :'Provide valid email and password' }
         </Form.Text>
         {/* <Form.Text className="text-danger">
         {error && 'Provide right email and password'}

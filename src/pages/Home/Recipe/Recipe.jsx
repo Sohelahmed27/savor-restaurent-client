@@ -4,7 +4,7 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 
-import { FaBookmark, FaStar } from 'react-icons/fa';
+import { GrFavorite  } from 'react-icons/gr';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
@@ -58,7 +58,7 @@ const Recipe = ({ recipe }) => {
     />
           </small>
           <div>
-          <button onClick={handleToast}><small><FaBookmark></FaBookmark></small></button>
+          <button onClick={handleToast}><small><GrFavorite></GrFavorite></small></button>
           <Toaster />
           </div>
         </Card.Footer>

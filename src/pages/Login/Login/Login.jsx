@@ -2,15 +2,17 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
   const {signIn} = useContext(AuthContext)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const location =useLocation();
+  console.log(location);
+  const from = location.state?.from?.pathname || '/';
 
-  const [user, setUser] = useState("");
-  const [error, setError] = useState("");
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,16 +28,13 @@ const Login = () => {
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser)
-      navigate('/chefs/:id')
+      navigate(from, {replace:true})
     })
    
     .catch(err => {
       console.log(err);
     })
-    
-
-    
-  };
+    };
   return (
     <div className="w-25 mx-auto border p-3 mt-4 rounded lh-lg">
     <h3 className="text-center text-primary" >Login Here!!</h3>
