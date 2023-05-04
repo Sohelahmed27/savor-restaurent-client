@@ -99,11 +99,11 @@ const Registration = () => {
     <p><small>Already have an account? Please login <Link to="/login">Login</Link>.</small></p>
 
     <Form.Text className="text-success">
-        {user && 'Account successfully created'}
+        {user?'Account successfully created' :'Provide right email and password' }
         </Form.Text>
-        <Form.Text className="text-danger">
+        {/* <Form.Text className="text-danger">
         {error && 'Provide right email and password'}
-        </Form.Text>
+        </Form.Text> */}
     </div>
   );
 };

@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
   const {signIn} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
@@ -25,6 +26,7 @@ const Login = () => {
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser)
+      navigate('/chefs/:id')
     })
    
     .catch(err => {
@@ -57,7 +59,7 @@ const Login = () => {
         required/>
       </Form.Group>
       <Button className="mt-4" variant="primary" type="submit">
-        Register
+        Login
       </Button>
     </Form>
     <p><small>New User? Please register <Link to="/register">Register</Link>.</small></p>
