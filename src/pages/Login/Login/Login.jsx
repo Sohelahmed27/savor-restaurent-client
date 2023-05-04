@@ -1,16 +1,38 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
+  const {signIn} = useContext(AuthContext)
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Email: ${email}, Password: ${password}`);
+    const form = e.target;
+    
+    const email = form.email.value;
+    const password = form.password.value;
+   
+    console.log(email, password);
+
+
+    signIn(email, password)
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser)
+    })
+   
+    .catch(err => {
+      console.log(err);
+    })
+    
+
+    
   };
   return (
     <div className="w-25 mx-auto border p-3 mt-4 rounded lh-lg">
@@ -21,9 +43,9 @@ const Login = () => {
         <Form.Control
           type="email"
           placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          name="email"
+          
+        required/>
       </Form.Group>
 
       <Form.Group controlId="formPassword">
@@ -31,15 +53,14 @@ const Login = () => {
         <Form.Control
           type="password"
           placeholder="Enter your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          name = "password"
+        required/>
       </Form.Group>
       <Button className="mt-4" variant="primary" type="submit">
         Register
       </Button>
     </Form>
-    <p><small>New User? Please register <Link to="/register">Login</Link>.</small></p>
+    <p><small>New User? Please register <Link to="/register">Register</Link>.</small></p>
     </div>
   );
 };
