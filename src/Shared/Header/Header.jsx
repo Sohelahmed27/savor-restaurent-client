@@ -1,26 +1,29 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Image, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Savor</Navbar.Brand>
+        <Navbar.Brand style={{ fontSize: "50px" }} >Savor</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link to='/'>Home</Nav.Link>
-            <Nav.Link to="/chefs">Our Chefs</Nav.Link>
-            <Nav.Link href="#pricing">Blog</Nav.Link>
+         
+         <Nav  className="mx-auto text-decoration-none  fs-6">
+            <Link style={{ fontSize: "22px" }} className="text-decoration-none " to='/'>Home</Link>
+            <Link style={{ fontSize: "22px" }}  className="text-decoration-none mx-5" to="/chefs">Our Chefs</Link>
+            <Link style={{ fontSize: "22px" }}  className="text-decoration-none" to="/blog">Blog</Link>
             </Nav>
           <Nav>
-            <Nav.Link href="#deets">Login</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+           <Image src=''></Image>
+            <Link style={{ fontSize: "22px" }}  className="text-decoration-none mx-3" to="/login">Login</Link>
+            <Link style={{ fontSize: "22px" }}  className="text-decoration-none " to="/register">Register</Link>
+           
           </Nav>
+        
         </Navbar.Collapse>
       </Container>
     </Navbar>

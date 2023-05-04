@@ -21,7 +21,7 @@ const Home = () => {
       >
         <Container className="text-center">
           <div>
-            <h1>Welcome to our Restaurant</h1>
+            <h1>Welcome to British Cuisine</h1>
             <p>
               Discover our delicious menu and enjoy a memorable dining
               experience.
