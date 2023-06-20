@@ -6,6 +6,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 
 const Login = () => {
+ 
   const {signIn} = useContext(AuthContext)
   const navigate = useNavigate();
   const location =useLocation();
